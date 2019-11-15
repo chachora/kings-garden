@@ -29,6 +29,7 @@ const MainPage = () => {
           value={values.width}
           label={'Width'}
           min={20}
+          step={2}
           onChange={hanldeFieldChange}
         />
         <NumberField
@@ -36,6 +37,7 @@ const MainPage = () => {
           value={values.height}
           label={'Height'}
           min={20}
+          step={2}
           onChange={hanldeFieldChange}
         />
         <NumberField
@@ -43,6 +45,7 @@ const MainPage = () => {
           value={values.padding}
           label={'Padding'}
           min={4}
+          step={2}
           onChange={hanldeFieldChange}
         />
       </div>
