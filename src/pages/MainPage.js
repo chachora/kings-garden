@@ -28,18 +28,21 @@ const MainPage = () => {
           name="width"
           value={values.width}
           label={'Width'}
+          min={20}
           onChange={hanldeFieldChange}
         />
         <NumberField
           name="height"
           value={values.height}
           label={'Height'}
+          min={20}
           onChange={hanldeFieldChange}
         />
         <NumberField
           name="padding"
           value={values.padding}
           label={'Padding'}
+          min={4}
           onChange={hanldeFieldChange}
         />
       </div>
