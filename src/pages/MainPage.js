@@ -12,7 +12,7 @@ const MainPage = () => {
   });
 
   const hanldeFieldChange = event => {
-    setValues({ ...values, [event.target.name]: event.target.value });
+    setValues({ ...values, [event.target.name]: Number(event.target.value) });
   };
 
   const garden = useMemo(

@@ -1,5 +1,26 @@
 const pixelEnum = [' ', '-', '|'];
 
+const calc = (garden, startWidth, startHeight, padding) => {
+  const height = garden.length;
+  const width = garden[0].length;
+
+  if (startHeight >= height / 2) return garden;
+
+  // Draw top, bottom border
+  for (let i = startWidth; i < width - startWidth; i++) {
+    garden[startHeight][i] = 1;
+    garden[height - startHeight - 1][i] = 1;
+  }
+
+  // Draw left, right border
+  for (let i = startHeight; i < height - startHeight; i++) {
+    garden[i][startWidth] = 2;
+    garden[i][width - startWidth - 1] = 2;
+  }
+
+  return calc(garden, startWidth + padding, startHeight + padding, padding);
+};
+
 /**
  * Returns 2D array with garden layout
  * @param width
@@ -8,7 +29,11 @@ const pixelEnum = [' ', '-', '|'];
  * @returns {Array}
  */
 export const draw = (width, height, padding) => {
-  return [];
+  console.log(padding);
+  if (padding <= 0) return [];
+  // Initialize 2D array
+  const garden = new Array(height).fill(0).map(() => new Array(width).fill(0));
+  return calc(garden, 0, 0, Math.floor(padding / 2) + 1);
 };
 
 /**
