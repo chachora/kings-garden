@@ -39,7 +39,7 @@ const calc = (garden, startWidth, startHeight, padding) => {
 export const draw = (width, height, padding) => {
   width = width - (width % 2);
   height = height - (height % 2);
-  if (padding <= 0) return [];
+  if (padding <= 0 || width <= 0 || height <= 0) return [];
   // Initialize 2D array
   const garden = new Array(height).fill(0).map(() => new Array(width).fill(0));
   return calc(garden, 0, 0, Math.floor(padding / 2) + 1);
