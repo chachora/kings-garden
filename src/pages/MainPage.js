@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import Garden from '../components/Garden';
 import NumberField from '../components/NumberField';
 import * as gardenHelper from '../utils/garden-helper';
@@ -14,6 +14,11 @@ const MainPage = () => {
   const hanldeFieldChange = event => {
     setValues({ ...values, [event.target.name]: event.target.value });
   };
+
+  const garden = useMemo(
+    () => gardenHelper.draw(values.width, values.height, values.padding),
+    [values]
+  );
 
   return (
     <div>
@@ -38,7 +43,7 @@ const MainPage = () => {
           onChange={hanldeFieldChange}
         />
       </div>
-      <Garden />
+      <Garden garden={garden} />
     </div>
   );
 };
