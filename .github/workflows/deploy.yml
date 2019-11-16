@@ -24,7 +24,6 @@ jobs:
         yarn test
       env:
         CI: true
-        REACT_APP_HOST: https://chachora.github.io/kings-garden/
     - name: Deploy
       if: success()
       uses: crazy-max/ghaction-github-pages@v1
