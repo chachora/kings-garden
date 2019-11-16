@@ -22,6 +22,8 @@ jobs:
         yarn install --frozen-lockfile
         yarn build --if-present
         yarn test
+      env:
+        CI: true
     - name: Deploy
       if: success()
       uses: crazy-max/ghaction-github-pages@v1
@@ -30,4 +32,3 @@ jobs:
         build_dir: build
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        CI: true
